@@ -59,6 +59,10 @@ sudo install -d /usr/share/zsh/scripts
 sudo cp -r base16-shell /usr/share/zsh/scripts/
 sudo chmod a+x /usr/share/zsh/scripts/base16-shell/*
 
+# Post Install
+sudo mkdir -p /usr/share/zsh/plugins/
+sudo cp /usr/share/zsh-* /usr/share/zsh/plugins/ -r
+
 # Install license
 echo "Installing license..."
 sudo install -D -m644 LICENSE /usr/share/licenses/${PKGNAME}/LICENSE
