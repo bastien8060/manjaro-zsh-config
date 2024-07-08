@@ -38,7 +38,7 @@ There are no prerequisites. The installation script will handle everything for y
 
 Once the installation is complete, your terminal should look like this:
 
-![Zsh Theme Screenshot](https://github.com/Chrysostomus/manjaro-zsh-config/raw/master/screenshot.png)
+![Zsh Theme Screenshot](https://github.com/bastien8060/manjaro-zsh-config/image.png)
 
 Enjoy your new Zsh setup! 🎉
 
