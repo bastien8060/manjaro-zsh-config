@@ -21,7 +21,7 @@ There are no prerequisites. The installation script will handle everything for y
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/manjaro-zsh-config.git
+    git clone https://github.com/bastien8060/manjaro-zsh-config.git
     cd manjaro-zsh-config
     ```
 
