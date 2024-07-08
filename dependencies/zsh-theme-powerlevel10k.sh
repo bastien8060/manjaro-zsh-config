@@ -44,6 +44,7 @@ sudo apt install -y "${DEPENDENCIES[@]}"
 
 # Clone and checkout the repository
 echo "Cloning and checking out repository..."
+rm -rf "${SOURCE[0]%.git*}.git"
 git clone "${SOURCE[0]%.git*}.git"
 cd powerlevel10k
 git checkout "${COMMIT}"
@@ -76,6 +77,7 @@ sudo install -d /usr/share/${PKGNAME}
 cd powerlevel10k
 sudo find . -type f -exec install -D '{}' "/usr/share/${PKGNAME}/{}" ';'
 sudo install -d /usr/share/licenses/${PKGNAME}
+rm /usr/share/licenses/${PKGNAME}/LICENSE
 sudo ln -s "/usr/share/${PKGNAME}/LICENSE" "/usr/share/licenses/${PKGNAME}/LICENSE"
 
 # Delete unnecessary files

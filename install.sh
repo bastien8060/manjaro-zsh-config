@@ -24,7 +24,10 @@ DEPENDENCIES=(
 )
 
 # Directory containing custom dependency installers
-DEPENDENCY_DIR="./dependencies"
+DEPENDENCY_DIR="/tmp/dependencies"
+# Create the dependencies directory
+mkdir -p "${DEPENDENCY_DIR}"
+cp dependencies/* ${DEPENDENCY_DIR}
 
 # Install dependencies
 echo "Installing dependencies..."
@@ -33,16 +36,17 @@ sudo apt install -y "${DEPENDENCIES[@]}"
 
 # Install custom dependencies
 echo "Installing custom dependencies..."
-wget https://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_22.04/amd64/zsh-completions_0.34.0-1+2.1_amd64.deb -o "${DEPENDENCY_DIR}/zsh-completions.deb"
+wget -O "${DEPENDENCY_DIR}/zsh-completions.deb" https://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_22.04/amd64/zsh-completions_0.34.0-1+2.1_amd64.deb
 sudo dpkg -i "${DEPENDENCY_DIR}/zsh-completions.deb"
 sudo bash "${DEPENDENCY_DIR}/ttf-meslo-nerd-font-powerlevel10k.sh"
 sudo bash "${DEPENDENCY_DIR}/zsh-history-substring-search.sh"
 sudo bash "${DEPENDENCY_DIR}/zsh-theme-powerlevel10k.sh"
 
-# Clone the repository
+# Clone the repository into /tmp
 echo "Cloning repository..."
-git clone "${URL}.git"
-cd "${PKGNAME}"
+rm -rf /tmp/${PKGNAME}
+git clone "${URL}.git" /tmp/${PKGNAME}
+cd /tmp/${PKGNAME}
 git checkout "${COMMIT}"
 
 # Install files
